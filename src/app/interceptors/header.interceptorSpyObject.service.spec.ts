@@ -9,26 +9,27 @@ import { TokenService } from '../services/token/token.service';
 
 import { HeaderInterceptorService } from './header.interceptor.service';
 
-describe('Header.InterceptorService Spy Method', () => {
+describe('Header.InterceptorService Spy Object', () => {
   let service: LoginLocatarioService;
   let httpTestingController: HttpTestingController;
-  let tokenService: TokenService;
+  let tokenServiceSpy: jasmine.SpyObj<TokenService>;
 
   beforeEach(() => {
-      
+      const spy = jasmine.createSpyObj('TokenService', ['getToken']);
+
       TestBed.configureTestingModule({
 
         imports: [ HttpClientTestingModule],
         providers: [
           LoginLocatarioService,
-          TokenService,
+          {provide: TokenService, useValue: spy},
           {provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptorService, multi: true}
         ]
 
       })
       service = TestBed.get(LoginLocatarioService);
       httpTestingController = TestBed.get(HttpTestingController);
-      tokenService = TestBed.get(TokenService);
+      tokenServiceSpy = TestBed.get(TokenService) as jasmine.SpyObj<TokenService>;
   });
 
   it('should be created', () => {
@@ -36,13 +37,13 @@ describe('Header.InterceptorService Spy Method', () => {
     expect(service).toBeTruthy();
   });
 
-  describe('test for interceptor header width spyMethod', () => {
+  describe('test for interceptor header width mock spyObject', () => {
     it('should add attrib to head', () => {
       //Arrange
       let login: Login = {usr: '', pwd: '', captcha: ''};
 
       const mockService = GenerateOneAuth();
-      spyOn(tokenService, 'getToken').and.returnValue('123');
+      tokenServiceSpy.getToken.and.returnValue('456');
       //Act
       //{...login} --> Evita problemas de mutación, pasa la referencia y no el valor
       service.auth({...login}).subscribe((data) => {
@@ -55,9 +56,9 @@ describe('Header.InterceptorService Spy Method', () => {
       req.flush(mockService);
       
       expect(req.request.headers.get('Interceptor')).toEqual('true');
-      
+
       httpTestingController.verify();
     });
-
+ 
   });
 });
