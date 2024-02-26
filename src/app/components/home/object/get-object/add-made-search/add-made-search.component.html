@@ -1,0 +1,15 @@
+<form #AddSearch="ngForm" (ngSubmit)="onSubmit()">
+  <div class="row col-12 alert alert-warning alert-save-made">
+    <span>No encontraste lo que buscabas? <br>
+      No te preocupes, guarda tú búsqueda y nosotros te alertamos cuando encontremos alguna coincidencia </span>
+      &nbsp;&nbsp;
+    <button class="col-2 btn btn-third" [attr.disabled]="isSearch ? true: null">
+      <i class="icon-load" [class.d-none]="!isSearch"></i> Guardar
+    </button>
+  </div>
+
+  <div class="row col-12 alert alert-warning" *ngIf="resultStatusService != null">
+    {{resultStatusService}}
+  </div>
+</form>
+<br><br>
