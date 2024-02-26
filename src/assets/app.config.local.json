@@ -1,0 +1,11 @@
+{
+    "production": false,
+    "baseUrl": "https://localhost:4200/microservicespro/",
+    "baseUrl_api": "http://localhost:8448/",
+    "api_evento": "api/v1/apimonitor/",
+    "urlIndentityServer": "https://envoyqa.grupo-exito.com:9043/",
+    "clientId": "323c99ee-f5c2-4165-b0a2-a3966cf11a6d",
+    "clientSecret": "HabEaytBCUwNxyYHNRkrTULgDAsGApCKQi",
+    "grantType": "client_credentials",
+    "scope": "L2ERD2SZLDK42K4T"
+}
