@@ -1,0 +1,46 @@
+<div  class="content-page d-flex">
+  <div  class="content-head">
+    <h2>Buscar</h2>
+    <p>Aquí puedes encontrar lo que estas buscando, solo diligencia el formulario y da clic al botón Buscar</p>
+  </div>
+  <div  class="content-form">
+        <br>
+
+        <!-- Serction second -->
+        <div class="row col-12 step1-form fade-in-text">
+          <div class="col-sm-12">
+            <h6>Tú objeto perdido tenía un número único? Ingresalo aquí </h6> <br>
+            <h6>No te preocupes, si no sabes o no tiene identificador, solo da clic en el botón  <button type="button" class="col-2 btn btn-third btn-example btn-example-next"> Continuar</button></h6><br>
+          </div>
+        </div>
+
+        <div class="row col-12 step2-form fade-in-text">
+          <div class="col-sm-6">
+              <h6>e. Número serial, código o identificación: </h6>
+              <div class="form-group input-exito">
+                <input type="text" class="form-control" placeholder="SERIAL O IDENTIFICACIÓN"  value="{{identity}}" autocomplete="off" name="code" #code="ngModel" [(ngModel)]="identity">
+              </div>
+          </div>
+        </div>
+        <div class="row col-12 step1-form fade-in-text">
+          <div class="col-sm-8">
+            <h6  class="hidden-component"> * </h6>
+              
+          </div>
+          <div class="col-sm-2" *ngIf="!isEdit">
+            <h6  class="hidden-component"> * </h6>
+              <button type="button" class="col-2 btn btn-third" (click)="showSection('/addsector')">Anterior</button>
+          </div>
+          <div class="col-sm-2" *ngIf="!isEdit">
+            <h6  class="hidden-component"> * </h6>
+              <button type="button" class="col-2 btn btn-third" (click)="showSection('/characteristics')">Continuar</button>
+          </div>
+          <div class="col-sm-2" *ngIf="isEdit">
+            <h6  class="hidden-component"> * </h6>
+              <button type="button" class="col-2 btn btn-third" (click)="showSection('/findme/result')">Guardar</button>
+          </div>
+        </div>
+
+        
+  </div>
+</div>
