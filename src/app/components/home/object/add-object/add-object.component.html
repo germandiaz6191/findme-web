@@ -1,0 +1,122 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true">
+  <p style="color: white">Cargando...</p>
+</ngx-spinner>
+<div  class="content-page d-flex">
+  <div  class="content-head">
+    <h2>Agregar Objetos</h2>
+    <p>Aquí puedes reportar objetos que te has encontrado, solo diligencia el formulario y da clic al botón Guardar</p>
+  </div>
+  <div  class="content-form">
+        <br>
+        <form #formAddObjects="ngForm" (ngSubmit)="onSubmit()">
+          <div class="form-row">
+              <div class="row col-12">
+                <div class="col-sm-2">
+                    <h6>a. País: </h6>
+                    <div class="form-group input-exito m-form-txt">
+                        <p *ngIf="countriesDTO != null">{{countriesDTO[0].name}}</p> 
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <h6>b. <span>*</span> Departamento: </h6>
+                    <div class="form-group input-exito">
+                      <select *ngIf="countriesDTO != null" class="custom-select custom-select-light" placeholder="DEPARTAMENTO" name="department" #department="ngModel" [(ngModel)]="codeDepartment" (change)="changeDepartment($event.target.value, i)">
+                        <option class="slection_inside" *ngFor="let item of valueSelectDepartments" value="{{item.id}}">
+                          {{item.name}}
+                        </option>
+                      </select>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                  <h6>c. <span>*</span> Ciudad: </h6>
+                  <div class="form-group input-exito">
+                      <select *ngIf="countriesDTO != null" class="custom-select custom-select-light" placeholder="CIUDAD" name="cities" #cities="ngModel" [(ngModel)]="codeCity" (change)="changeCity($event.target.value, i)">
+                        <option class="slection_inside" *ngFor="let item of valueSelectCities" value="{{item.id}}">
+                          {{item.name}}
+                        </option>
+                    </select>
+                      <br>
+                  </div>
+                  
+                </div>
+                
+                <div class="col-sm-3">
+                  <h6>d. <span>*</span> Sector: </h6>
+                  <div class="form-group input-exito">
+                      <select *ngIf="countriesDTO != null" class="custom-select custom-select-light" placeholder="Sector" name="sectors" #sectors="ngModel" [(ngModel)]="codeSector">
+                        <option class="slection_inside" *ngFor="let item of valueSelectSectors" value="{{item.id}}">
+                          {{item.name}}
+                        </option>
+                    </select>
+                      <br>
+                  </div>
+                </div>              
+              </div>
+              <div class="row col-12">
+                <div class="col-sm-6">
+                  <h6>e. Número serial, código o identificación: </h6>
+                  <div class="form-group input-exito">
+                    <input type="text" class="form-control" placeholder="SERIAL O IDENTIFICACIÓN"  value="{{identity}}" autocomplete="off" name="code" #code="ngModel" [(ngModel)]="identity">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <h6>f. Imagen: </h6>
+                  <div class="form-group input-exito">
+                    <input type="file" class="upload-document-btn" name="imageSelect"
+                      (change)="fileChange($event.target.files)" accept="image/png">
+                  </div>
+                </div>
+              </div>
+              <div class="row col-12">
+                <div class="col-sm-4">
+                    <h6>g. <span>*</span> Palabra clave: </h6>
+                    <div class="form-group input-exito">
+                      <input type="text" class="form-control" placeholder="PALABRA CLAVE"  value="{{keyword}}" autocomplete="off" name="kword" #kword="ngModel" [(ngModel)]="keyword">
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                  <h6><span class="hidden-component">*</span> </h6>
+                  <div class="form-group input-exito">
+                      <button type="button" class="col-2 btn btn-third" (click)="addKeyword()">Adicionar</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row col-12">
+                <br><br>
+                <div class="col-sm-12">
+                  <h6>Palabras claves adicionadas: </h6>
+                  <div class="form-group input-exito block-adds">
+                    <span *ngFor="let item of selectdKeywords; let i = index">{{i>0 ?',':''}} {{item.word}}</span> 
+                  </div>
+                </div>
+              </div>
+
+              <div class="row col-12">
+                <div class="col-sm-6">
+                  <h6>h. Comentario: </h6>
+                  <div class="form-group input-exito">
+                    <textarea type="text"  class="form-control" placeholder="COMENTARIO"  value="{{description}}" autocomplete="off" name="code" #code="ngModel" [(ngModel)]="description">
+
+                    </textarea>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+
+                </div>
+              </div>
+                          
+              <div class="col-12 p-0">
+                <button class="col-2 btn btn-third" [disabled]="!formAddObjects.form.valid">
+                  <i class="icon-Buscar_negro" [class.d-none]="isSubmit"></i>
+                  <i class="icon-load" [class.d-none]="!isSubmit"></i> Guardar
+                </button>
+              </div> 
+
+              <div class="col-12 p-0" *ngIf="resultStatusService != null">
+                {{resultStatusService}}
+              </div>            
+          </div>
+        </form>
+  </div>
+</div>
