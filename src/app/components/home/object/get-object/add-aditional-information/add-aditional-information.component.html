@@ -1,0 +1,84 @@
+<h2>Agregar Información Adicional</h2>
+    <br>
+      <form #AddDetailInformation="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            
+            <div class="row col-12">
+              <div class="col-sm-6">
+                  <h6>a. * Nombres: </h6>
+                  <div class="form-group input-exito">
+                    <input type="text" class="form-control" placeholder="NOMBRES"  value="{{firstnames}}" autocomplete="off" name="nfirstnames" #nfirstnames="ngModel" [(ngModel)]="firstnames" required>
+                    <span class="msg-error" *ngIf="!nfirstnames.valid && nfirstnames.touched">Este campo es obligatorio*</span>
+                  </div>
+              </div>
+              <div class="col-sm-6">
+                <h6>a. * Apellidos: </h6>
+                <div class="form-group input-exito">
+                  <input type="text" class="form-control" placeholder="APELLIDOS"  value="{{lastnames}}" autocomplete="off" name="nlastname" #nlastname="ngModel" [(ngModel)]="lastnames" required>
+                  <span class="msg-error" *ngIf="!nlastname.valid && nlastname.touched">Este campo es obligatorio*</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row col-12">
+              <div class="col-sm-6">
+                  <h6>a. * Tipo Identificación: </h6>
+                  <div class="form-group input-exito">
+                    <select *ngIf="identificationType != null" class="custom-select custom-select-light" placeholder="TIPO IDENTIFICACIÓN" name="nameidentificationtype" #nameidentificationtype="ngModel" [(ngModel)]="codeIdentityType">
+                      <option class="slection_inside" *ngFor="let item of identificationType" value="{{item.id}}">
+                        {{item.name}}
+                      </option>
+                    </select>
+                  </div>
+              </div>
+              <div class="col-sm-6">
+                <h6>a. * Número Identificación: </h6>
+                <div class="form-group input-exito">
+                  <input type="text" class="form-control" placeholder="NÚMERO IDENTIFICACIÓN"  value="{{identitynumber}}" autocomplete="off" name="codeidentity" #codeidentity="ngModel" [(ngModel)]="identitynumber" required>
+                  <span class="msg-error" *ngIf="!codeidentity.valid && codeidentity.touched">Este campo es obligatorio*</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row col-12">
+              <div class="col-sm-6">
+                  <h6>a. Cédula escaneada: </h6>
+                  <div class="form-group input-exito">
+                    <input type="file" class="upload-document-btn" name="imageSelect"
+                      (change)="fileChange($event.target.files)" accept="application/jpeg">
+                  </div>
+              </div>
+              <div class="col-sm-6">
+
+              </div>
+            </div>
+
+            <div class="row col-12">
+              <div class="col-sm-6">
+                  <h6><span class="hidden-component">*</span> </h6>
+                  <div class="form-group input-exito">
+                    <input type="checkbox" [checked]="versiontermnsconditions" name="termnsconditions" #termnsconditions="ngModel" [(ngModel)]="versiontermnsconditions" required> &nbsp; <span (click)="openTermnsAndConditions()">Aceptar términos y condiciones</span> <br>
+                    <span class="msg-error" *ngIf="!termnsconditions.valid && termnsconditions.touched">Este campo es obligatorio*</span>
+                  </div>
+              </div>
+              <div class="col-sm-6">
+
+              </div>
+            </div>
+                        
+            <div class="col-12 p-0">
+              <button class="col-2 btn btn-third loading" [disabled]="!AddDetailInformation.form.valid">
+                <i class="icon-Buscar_negro"></i><i class="icon-load"></i> Guardar información y solicitar
+              </button>
+              <br><br>
+            </div> 
+
+            <label *ngIf="null != resultStatusService && '' != resultStatusService" class="alert alert-warning">
+              {{resultStatusService}}
+            </label>            
+        </div>
+      </form>
+
+      <div *ngIf="stepShowForm == 2">
+        <app-change-status-object [getLostObject]="getLostObject"></app-change-status-object>
+      </div>
