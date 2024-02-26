@@ -1,0 +1,101 @@
+.content-page{
+    flex-direction: column;
+}
+
+.content-head{
+    background-color: #3AAF9F;
+    width: 90%;
+    padding: 2rem 3rem 1rem 3rem;
+    border-radius: 30px 30px 0px 0px;
+}
+
+.content-form{
+    border-radius: 0px 0px 30px 30px;
+    padding: 1rem 3rem 3rem 3rem;
+}
+
+.cart-content{
+    border-width: 1px;
+    border-style: groove;
+    box-shadow: 2px 7px 7px 0px rgba(0,0,0,0.22);
+    border-color: #ffffff26;
+    padding: 1rem !important;
+    min-height: 16rem;
+    margin: 10px;
+}
+.card-content-right{
+    background-color: #3AAF9F;
+    color: #ffffff;
+}
+
+.cart-head{
+    height: 10%;
+    text-align: center;
+}
+
+.cart-body{
+    text-align: center;
+    height: 75%;
+}
+.cart-keyword-image{
+    height: 6rem;
+}
+.card-action{
+    text-align: center;
+}
+.content-search-made{
+    width: 100%;
+}
+.alert-save-made{
+    flex-direction: column;
+}
+
+.btn-example{
+    min-width: 39px;
+    width: 39px;
+    height: 17px;
+    font-size: 9px;
+    padding-bottom: 15px;
+}
+
+.btn-example-next{
+  min-width: 66px;
+}
+
+.fade-in-text {
+    animation: fadeIn linear 2s;
+    animation-timing-function: ease;
+    -webkit-animation: fadeIn linear 2s;
+    -moz-animation: fadeIn linear 2s;
+    -o-animation: fadeIn linear 2s;
+    -ms-animation: fadeIn linear 2s;
+    -webkit-animation-timing-function: ease;
+    -moz-animation-timing-function: ease;
+    -o-animation-timing-function: ease;
+    -ms-animation-timing-function: ease;
+  }
+  
+  @keyframes fadeIn {
+    0% {opacity:0;transform: translateX(20px)}
+    100% {opacity:1;transform: translateX(0)}
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {opacity:0; transform: translateX(20px);}
+    100% {opacity:1; transform: translateX(0);}
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {opacity:0;transform: translateX(20px);}
+    100% {opacity:1;transform: translateX(0);}
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {opacity:0;transform: translateX(20px);}
+    100% {opacity:1;transform: translateX(0);}
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {opacity:0;transform: translateX(20px);}
+    100% {opacity:1;transform: translateX(0);}
+  }
