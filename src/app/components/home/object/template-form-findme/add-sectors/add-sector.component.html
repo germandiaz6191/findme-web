@@ -1,0 +1,106 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true">
+  <p style="color: white">Cargando...</p>
+</ngx-spinner>
+
+<div  class="content-page d-flex">
+  <div  class="content-head">
+    <h2>Buscar</h2>
+    <p>Aquí puedes encontrar lo que estas buscando, solo diligencia el formulario y da clic al botón Buscar</p>
+  </div>
+  <div  class="content-form">
+        <br>
+          <div class="form-row">
+                  <!-- Serction first -->
+                  <div class="row col-12 step1-form fade-in-text">
+                    <div class="col-sm-12">
+                        <h6>Da click en el botón  
+                            <button type="button" class="col-2 btn btn-plus btn-example"> <i class="icon-plus"></i> </button>
+                            para agregar el o los sectores donde crees que se perdio tú(s) objeto(s). 
+                        </h6> <br><br> 
+                        
+                    </div>
+                  </div>
+                  
+                  <div class="row col-12 step1-form fade-in-text">
+                    <div class="col-sm-4">
+                        <h6>a. País: </h6>
+                        <div class="form-group input-exito m-form-txt">
+                            <p *ngIf="countriesDTO != null">{{countriesDTO[0].name}}</p> 
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <h6>b. <span></span> Departamento: </h6>
+                        <div class="form-group input-exito fade-in-text">
+                          <select *ngIf="countriesDTO != null" class="custom-select custom-select-light" placeholder="DEPARTAMENTO" name="department" #department="ngModel" [(ngModel)]="codeDepartment" (change)="changeDepartment($event.target.value)">
+                            <option class="slection_inside" *ngFor="let item of valueSelectDepartments" value="{{item.id}}">
+                              {{item.name}}
+                            </option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <h6>c. <span></span> Ciudad: </h6>
+                      <div class="form-group input-exito">
+                          <select *ngIf="countriesDTO != null" class="custom-select custom-select-light" placeholder="CIUDAD" name="cities" #cities="ngModel" [(ngModel)]="codeCity" (change)="changeCity($event.target.value)">
+                            <option class="slection_inside" *ngFor="let item of valueSelectCities" value="{{item.id}}">
+                              {{item.name}}
+                            </option>
+                        </select>
+                          <br>
+                      </div>
+                    </div>                  
+                  </div>
+                  
+                  <div class="row col-12 step1-form fade-in-text">
+                    <div class="col-sm-4">
+                      <h6>d. <span></span> Sector: </h6>
+                      <div class="form-group input-exito">
+                          <select *ngIf="countriesDTO != null" class="custom-select custom-select-light" placeholder="Sector" name="sectors" #sectors="ngModel" [(ngModel)]="codeSector">
+                            <option class="slection_inside" *ngFor="let item of valueSelectSectors" value="{{item.id}}">
+                              {{item.name}}
+                            </option>
+                        </select>
+                          <br>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <h6><span class="hidden-component">*</span> </h6>
+                      <div class="form-group input-exito">
+                          <button type="button" class="col-2 btn btn-plus" (click)="addSector()">
+                            <i class="icon-plus"></i> 
+                          </button>
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="row col-12 step1-form fade-in-text" *ngIf="selectdSectors.length > 0">
+                    <br><br>
+                    <div class="col-sm-12">
+                      <h6>Sectores adicionados: </h6>
+                      <div class="form-group input-exito block-adds">
+                          <span *ngFor="let item of selectdSectors; let i = index">{{i>0 ?',':''}} {{item.name}}</span> 
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="row col-12 step1-form fade-in-text">
+                    <div class="col-sm-8">
+                    </div>
+                    <div class="col-sm-2" *ngIf="!isEdit">
+                      <h6  class="hidden-component"> * </h6>
+                        <button type="button" class="col-2 btn btn-third" (click)="showSection('/home')">Salir</button>
+                    </div>
+                    <div class="col-sm-2" *ngIf="!isEdit">
+                      <h6  class="hidden-component"> * </h6>
+                        <button type="button" class="col-2 btn btn-third" (click)="showSection('/identification')">Continuar</button>
+                    </div>
+                    <div class="col-sm-2" *ngIf="isEdit">
+                      <h6  class="hidden-component"> * </h6>
+                        <button type="button" class="col-2 btn btn-third" (click)="showSection('/findme/result')">Guardar</button>
+                    </div>
+                  </div>
+              <br>
+              <br>
+          </div>        
+  </div>
+</div>
