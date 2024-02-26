@@ -1,4 +1,4 @@
-import { SectorDto } from "./SectorDto";
+import { CitiesDto } from "./citiesDto";
 
 /**
  * DTO to Show the response with a message cpuntries the service
@@ -6,11 +6,11 @@ import { SectorDto } from "./SectorDto";
  * @author German
  * 
  */
- export class CitiesDto {
+ export class DepartmentsDTO {
 
     public id: number;
 	public description: string;
 	public name: string;
-	public sector: Array<SectorDto>;
+	public cities: Array<CitiesDto>;
 
 }
