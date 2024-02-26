@@ -1,0 +1,25 @@
+{
+    "/api/*": {
+        "target": "https://envoyqa.grupo-exito.com:9043",
+        "secure": false,
+        "logLevel": "info"
+    },
+    
+    "/microservicespro/*": {
+        "target": "https://localhost:2020",
+        "secure": false,
+        "logLevel": "info",
+        "pathRewrite": {
+            "^/microservicespro": ""
+        }
+    },
+    "/LKSBAGEGQGD/*": {
+        "target": "http://localhost:8448/api/v1",
+        "secure": false,
+        "logLevel": "debug",
+        "pathRewrite": {
+            "^/LKSBAGEGQGD": ""
+        }
+    }
+}
+
