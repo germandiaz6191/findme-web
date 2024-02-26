@@ -1,0 +1,230 @@
+/*insertar las fuentes Nunito he implementarlas */
+*, .container-body{
+    font-family: 'Nunito', sans-serif;
+}
+
+h2{
+    font-weight: bold;
+}
+
+h2, .content-head p{
+    color: #FFFFFF;
+}
+
+.aling-c-flex-r{
+    text-align: end;
+}
+
+.alert-warning {
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+    color: #8a6d3b;
+    width: 100%;
+}
+  
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.content-page{
+    min-height: 100vh;
+    padding-top: 3vh;
+    padding-bottom: 2vh;
+    background-color: #F0F4F3;
+    background-position: top left, top right, left center;
+    background-size: auto, auto, auto; 
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-page input, .content-page textarea {
+    border: none;
+    padding: 10px 20px;
+    transition: .3s;
+    box-shadow: 3px 3px 2px #0000001a;
+    border-radius: 10px;
+    //background: #F4F8F7;
+    background: #FFFFFF;
+}
+
+.content-page .custom-select{
+    border: none;
+    padding: 10px 20px;
+    box-shadow: 3px 3px 2px #0000001a;
+    border-radius: 10px;
+    //background-color: #F4F8F7;
+    background-color: #FFFFFF;
+}
+
+.content-form{
+    width: 90%;
+    background-color: #FFFFFF;
+    padding: 3rem;
+    box-shadow: 2px 7px 7px 0px rgba(0,0,0,0.22);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 30px;   
+}
+
+.custom-select, .form-control{
+    font-size: 0.9rem;
+}
+
+.m-form-txt{
+    margin-top: 1rem;
+}
+
+.container-body {
+    min-height: 100vh;
+    padding-top: 3vh;
+    padding-bottom: 2vh;
+    //background-color: #00A6A9;
+    background-color: #F0F4F3;
+    background-position: top left, top right, left center;
+    background-size: auto, auto, auto; 
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.content-center{
+    text-align: center;
+}
+  
+.hidden-component{
+    visibility: hidden;
+}
+  
+  a {
+    color: #fff;
+    font-size: 15px;
+    text-decoration: none;
+  }
+  
+  input::-webkit-input-placeholder {
+    color: #999;
+  }
+  input:-moz-placeholder {
+    color: #999;
+  }
+  input:-ms-input-placeholder { 
+    color: #999;
+  }
+
+.btn-third{
+    cursor: pointer;
+    background-color: #3AAF9F;
+    box-shadow: 2px 7px 7px 0px rgba(0,0,0,0.22);
+    color: #fff ;
+    min-width: 160px;
+    min-height: 35px;
+    border-radius: 1.25rem;
+}
+  
+.btn-third:hover{
+    background-color: #64DBDD!important;
+    color: #632E7F !important;
+    transition: 0.3s;
+}
+
+.btn-link{
+    cursor: pointer;
+    color: #2c9b9b;
+}
+  
+.btn-link:hover{
+    color: #632E7F !important;
+    transition: 0.3s;
+}
+
+.btn-plus{
+    cursor: pointer;
+    background-color: #34b883;
+    box-shadow: 2px 7px 7px 0px rgba(0,0,0,0.22);
+    color: #fff ;
+    min-width: 60px;
+    border-radius: 1.25rem;
+}
+
+.btn-plus:hover{
+    background-color: #64DBDD!important;
+    color: #632E7F !important;
+    transition: 0.3s;
+}
+
+.block-adds{
+    background: #F0F4F3;
+    padding: 22px;
+    box-shadow: 2px 5px 7px 0px rgba(207, 173, 173, 0.08);
+}
+.msg-error{
+    color: #e90606;
+    font-size: 12px;
+}
+ 
+//PAGINADOR LIBRERIA GLOBA
+.pagination  ::ng-deep .btn-navigation, .pagination ::ng-deep button{
+    padding: 2px 11px;
+    margin-right: 16px;
+    color: #565656;
+    font-size: 14px !important;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .pagination  ::ng-deep .btn-navigation:hover, .pagination ::ng-deep button:hover{
+    background-color: #E0FEFF;
+  }
+  
+  .pagination ::ng-deep .page-item{
+      display: none;
+      cursor: pointer;
+      background: transparent;
+      .page-link:focus{
+          box-shadow: none;
+      }
+  }
+  .pagination ::ng-deep .page-item:first-child{
+      display: flex;
+      cursor: pointer;
+      background: transparent;
+  }
+  
+  .pagination ::ng-deep .page-item:last-child{
+      display: flex;
+      cursor: pointer;
+      background: transparent;
+  }
+  .pagination ::ng-deep .page-item .page-link{
+      font-size: 20px;
+      border-radius: 50%;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      background: transparent;
+  }
+  .pagination ::ng-deep .page-item .page-link, ::ng-deep .page-item:hover .page-link{
+      i{
+          background-color: #E0FEFF;
+          color: #632E7F;
+          border-radius: 50%;
+          display: flex;
+          margin-left: 0.5em;
+          padding: 5px;
+      }
+  }
+  .pagination ::ng-deep  .disabled .page-link{
+      i{
+          color: #929292;
+          padding: 5px;
+          background-color: #fff;
+          display: flex;
+          margin-left: 0.5em;
+          border-radius: 50%;
+      }
+  }
+  
