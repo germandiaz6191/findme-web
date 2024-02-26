@@ -1,0 +1,60 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true">
+  <p style="color: white">Cargando...</p>
+</ngx-spinner>
+<div class="content">
+<div class="img-circle"></div>
+<div class="container-body">
+  <div class="container-fluid">
+    <div class="row-login">
+        <div class="col-lg-5 col col-md-12 col-login">
+          <div class="content-head d-flex">
+            <h2>Olvidaste tú contraseña?</h2>
+            <p>Ingresa tú correo y da clic en <strong>Olvido contraseña</strong> <br><br>
+              Llegará un mensaje a tú correo con unos pasos y una clave de recuperación <br>
+            <br><br><br>
+            <div class="forget">
+              <a (click)="backhome()" class="w-forget"><strong>Regresar</strong></a>
+            </div>
+          </div>
+          <div class="form-signin">
+            <div class="col">
+              <form #formLogin="ngForm" (ngSubmit)="onSubmit()" >
+                <div class="col mid">
+                  <p class="text-green title"><strong>Olvido contraseña</strong></p>
+                </div>
+                
+                <div class="col mid">
+                  <input type="text" class="form-control" placeholder="USUARIO"  value="{{user}}" autocomplete="off" name="username" #username="ngModel" [(ngModel)]="user" required>
+                </div>
+                <div class="col mid cont-text-left msg-error">
+                    <span *ngIf="!username.valid && username.touched">Este campo es obligatorio*</span>
+                </div>     
+                <div class="col mid">						
+                  <div class="recaptcha">
+                    <re-captcha (resolved)="resolved($event)" 
+                                name="recaptcha" #recaptcha="ngModel" [(ngModel)]="captchaResponse"
+                                siteKey="6LeADqpafI2vWwCO_GkY_rTfpDa">  
+                    </re-captcha>
+                  </div>
+                  <br>           
+                  
+                  <label *ngIf="null != msgError && '' != msgError" class="alert alert-warning" style="width: 100%;">
+                    {{msgError}}
+                  </label>
+                </div>	
+                
+                <div class="col mid text-center">
+                  <button type="submit" class="btn btn-third" [disabled]="!formLogin.form.valid">
+                    <i class="icon-load" [class.d-none]="!isSubmit"></i> 
+                     Olvido contraseña
+                   </button>
+                </div>
+                
+               </form> 
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
