@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Icons as fonts
+@import 'assets/scss/icons/style.scss';
+
+@media (max-width: 856px){
+
+    html,body{
+        overflow-x: hidden;
+    }
+}
