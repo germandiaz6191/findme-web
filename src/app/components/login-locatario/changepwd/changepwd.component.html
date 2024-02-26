@@ -1,0 +1,60 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true">
+  <p style="color: white">Cargando...</p>
+</ngx-spinner>
+<div class="content">
+<div class="img-circle"></div>
+<div class="container-body">
+  <div class="container-fluid">
+    <div class="row-login">
+        <div class="col-lg-5 col col-md-12 col-login">
+          <div class="content-head d-flex">
+            <h2>Define tú nueva contraseña!</h2>
+            <p>Recuerda llenar el campo con una clave segura y da clic en el botón <strong>Definir clave</strong></p>
+            <br><br><br>
+            <div class="forget">
+              <a (click)="backhome()" class="w-forget"><strong>Regresar</strong></a>
+            </div>
+          </div>
+          <div class="form-signin">
+            <div class="col">
+              <form #formLogin="ngForm" (ngSubmit)="onSubmit()" >
+                <div class="col mid">
+                  <p class="text-green title"><strong>Define tú clave</strong></p>
+                </div>
+                
+                <div class="col mid">
+                  <p>{{user}}</p>
+                </div>
+                <div class="col mid">
+                    <input type="password" class="form-control" placeholder="CONTRASEÑA" autocomplete="off" value="{{pwd}}" name="usPwd" #usPwd="ngModel" [(ngModel)]="pwd" required>
+                </div>
+                <div class="col mid cont-text-left msg-error">
+                    <span *ngIf="!usPwd.valid && usPwd.touched">Este campo es obligatorio*</span>
+                </div>
+                
+                <div class="col mid">
+                  <input type="password" class="form-control" placeholder="CONFIRMAR CONTRASEÑA" autocomplete="off" value="{{pwdConfirm}}" name="usPwdConfirm" #usPwdConfirm="ngModel" [(ngModel)]="pwdConfirm" required>
+                </div>
+                <div class="col mid cont-text-left msg-error">
+                  <span *ngIf="!usPwdConfirm.valid && usPwdConfirm.touched">Este campo es obligatorio*</span>
+                </div> 
+                
+                <label *ngIf="null != msgError && '' != msgError" class="alert alert-warning" style="width: 100%;">
+                  {{msgError}}
+                </label>
+                
+                <div class="col mid text-center">
+                  <button type="submit" class="btn btn-third" [disabled]="!formLogin.form.valid">
+                    <i class="icon-load" [class.d-none]="!isSubmit"></i> 
+                     Definir clave
+                   </button>
+                </div>
+                
+               </form> 
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
