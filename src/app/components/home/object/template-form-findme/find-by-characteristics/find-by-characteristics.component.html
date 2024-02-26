@@ -1,0 +1,63 @@
+<div  class="content-page d-flex">
+  <div  class="content-head">
+    <h2>Buscar</h2>
+    <p>Aquí puedes encontrar lo que estas buscando, solo diligencia el formulario y da clic al botón Buscar</p>
+  </div>
+  <div  class="content-form">
+        <br>
+
+        <!-- Serction third -->
+        <div class="row col-12 step1-form fade-in-text">
+          <div class="col-sm-12">
+            <h6>Llegamos al final, ingresa características que ayuden a identificar tú objeto, entre mas describas mejor </h6> <br>
+            <h6>Computador, portátil, gris</h6><br>
+          </div>
+        </div>
+
+        <div class="row col-12 step3-form fade-in-text">
+          <div class="col-sm-4">
+              <h6>b. <span>*</span> Palabra clave: </h6>
+              <div class="form-group input-exito">
+                <input type="text" class="form-control" placeholder="PALABRA CLAVE"  value="{{keyword}}" autocomplete="off" name="kword" #kword="ngModel" [(ngModel)]="keyword">
+              </div>
+          </div>
+          <div class="col-sm-8">
+            <h6><span class="hidden-component">*</span> </h6>
+            <div class="form-group input-exito">
+                <button type="button" class="col-2 btn btn-plus" (click)="addKeyword()">
+                  <i class="icon-plus"></i>
+                </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row col-12 step3-form fade-in-text" *ngIf="selectdKeywords.length > 0">
+          <br><br>
+          <div class="col-sm-12">
+            <h6>Palabras claves adicionadas: </h6>
+            <div class="form-group input-exito block-adds">
+                <span *ngFor="let item of selectdKeywords; let i = index">{{i>0 ?',':''}} {{item.word}}</span> 
+            </div>
+          </div>
+        </div>
+                        
+        <div class="row col-12 step3-form fade-in-text">
+          <div class="col-sm-8">
+          
+          </div>
+          <div class="col-sm-2" *ngIf="!isEdit">
+            <h6  class="hidden-component"> * </h6>
+              <button type="button" class="col-2 btn btn-third" (click)="showSection('/identification')">Anterior</button>
+          </div>
+          <div class="col-sm-2" *ngIf="!isEdit">
+            <h6  class="hidden-component"> * </h6>
+              <button type="button" class="col-2 btn btn-third" (click)="showSection('/findme/result')">Buscar</button>
+          </div>
+          <div class="col-sm-2" *ngIf="isEdit">
+            <h6  class="hidden-component"> * </h6>
+              <button type="button" class="col-2 btn btn-third" (click)="showSection('/findme/result')">Guardar</button>
+          </div>
+        </div> 
+        
+  </div>
+</div> 
