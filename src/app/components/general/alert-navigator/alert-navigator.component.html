@@ -1,0 +1,9 @@
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">{{data.title}}</h4>
+    <p>{{data.content}}</p>
+    <hr>
+    <div class="form-group input-exito">
+      <button type="button" class="col-2 btn btn-third" (click)="showSection(data.navigatorGo)">Si</button>
+      <button type="button" class="col-2 btn btn-third" (click)="showSection(data.navigatorBack)">No</button>
+    </div>
+  </div>
