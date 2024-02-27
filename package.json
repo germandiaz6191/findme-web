@@ -7,8 +7,7 @@
     "build": "ng build --base-href=/apioweb/api/v1/IOYUTRTEERG/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --watch=false",
-    "start-local": "ng serve --proxy-config proxy.conf.json",
-    "refreshVSToken": "vsts-npm-auth -config .npmrc"
+    "start-local": "ng serve --proxy-config proxy.conf.json"
   },
   "private": true,
   "dependencies": {
