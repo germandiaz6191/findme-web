@@ -36,7 +36,6 @@
     "ng-recaptcha": "^11.0.0",
     "ngx-chips": "^3.0.0",
     "ngx-spinner": "^15.0.1",
-    "portalpro-startapp": "^0.0.8-rc.22",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "xlsx": "^0.18.5",
