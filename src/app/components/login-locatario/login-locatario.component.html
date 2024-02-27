@@ -1,0 +1,70 @@
+<img src="/assets/alarm.png" class="img-fluid center " alt="PortalPRO">
+
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true">
+  <p style="color: white">Cargando...</p>
+</ngx-spinner>
+<div class="content">
+<div class="img-circle"></div>
+<div class="container-body">
+  <div class="container-fluid">
+    <div class="row-login">
+        <div class="col-lg-5 col col-md-12 col-login">
+          <div class="content-head d-flex">
+            <h2>{{'Bienvenido a nuestro sitio!' | piptransf}}</h2>
+            <p>Acá puedes saber si otra persona encontró tus <strong>objetos perdidos</strong> <br><br> o puedes reportar algo que té encontraste</p>
+            <br><br><br>
+            <div class="forget">
+              <a (click)="signup()" class="w-forget"><strong>Registrarme</strong></a>
+              <a (click)="forget()" class="aling-c-flex-r w-forget"><strong>Olvidó contraseña</strong></a>
+            </div>
+          </div>
+          <div class="form-signin">
+            <div class="col">
+              <form #formLogin="ngForm" (ngSubmit)="onSubmit()" >
+                <div class="col mid">
+                  <p class="text-green title"><strong>Iniciar sesión</strong></p>
+                </div>
+                
+                <div class="col mid">
+                  <input type="text" class="form-control" placeholder="USUARIO"  value="{{user}}" 
+                      autocomplete="off" id="username" name="username" #username="ngModel" [(ngModel)]="user"
+                      [attr.aria-invalid]="username?.touched ? username?.invalid : ''" required>
+                </div>
+                <div class="col mid cont-text-left msg-error ddd">
+                    <span data-testid="erroruser" id="erroruserid" *ngIf="username?.touched && username?.errors && username?.hasError('required')">Este campo es obligatorio*</span>
+                </div>
+                <div class="col mid">
+                    <input data-testid="passid" type="password" class="form-control" placeholder="CONTRASEÑA" autocomplete="off" value="{{pwd}}" name="usPwd" #usPwd="ngModel" [(ngModel)]="pwd" required>
+                </div>
+                <div class="col mid cont-text-left msg-error">
+                    <span *ngIf="!usPwd.valid && usPwd.touched">Este campo es obligatorio*</span>
+                </div>      
+                <div class="col mid">						
+                  <div class="recaptcha">
+                    <!-- <re-captcha (resolved)="resolved($event)" 
+                                name="recaptcha" #recaptcha="ngModel" [(ngModel)]="captchaResponse"
+                                siteKey="6LeADqpafI2vWwCO_GkY_rTfpDa">  
+                    </re-captcha> -->
+                  </div>
+                  <br>           
+                  
+                  <label *ngIf="null != msgError && '' != msgError" class="alert alert-warning" style="width: 100%;">
+                    {{msgError}}
+                  </label>
+                </div>	
+                
+                <div class="col mid text-center">
+                  <button type="submit" class="btn btn-third" data-testid="btn-submit" [disabled]="!formLogin.form.valid">
+                    <i class="icon-load" [class.d-none]="!isSubmit"></i> 
+                     Ingresar
+                   </button>
+                </div>
+                
+               </form> 
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
