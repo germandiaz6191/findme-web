@@ -1,0 +1,18 @@
+{
+  "name": "portallocatario-startapp",
+  "version": "1.0.1-rc.0",
+  "scripts": {
+    "build": "npm version prerelease && ng build portallocatario-startapp && npm run generatepublish && npm run publish",
+    "buildQA": "npm version prerelease --preid=rc && ng build portallocatario-startapp && npm run generatepublish && npm run publish",
+    "generatepublish": "npm run relocationpackage && npm run copynpmrc",
+    "relocationpackage": "mkdirp portallocatario-startapp && rimraf portallocatario-startapp && cd dist && move portallocatario-startapp ../portallocatario-startapp",
+    "copynpmrc": "copy .npmrc portallocatario-startapp",
+    "publish": "cd portallocatario-startapp && npm publish"
+  },
+  "peerDependencies": {
+    "@angular/common": "~13.1.0",
+    "@angular/core": "~13.1.0",
+    "popper.js": "^1.16.1",
+    "jwt-decode": "^3.1.2"
+  }
+}
