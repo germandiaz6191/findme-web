@@ -1,4 +1,7 @@
-FROM nginx:1.19.6-alpine as RUN
-COPY _#{Build.Repository.Name}#/Artifact-#{Build.Repository.Name}#  /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY security-headers.conf /etc/nginx/security-headers.conf\
+#FROM nginx:1.19.6-alpine as RUN
+FROM node:alpine
+WORKDIR /usr/src/app
+copy package*.json ./
+RUN npm install -g npm@10.4.0
+copy . .
+CMD ["npm", "start"]
