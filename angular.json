@@ -27,18 +27,11 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              {
-                "glob": "**/*",
-                "input": "./node_modules/portalpro-startapp/assets/global-css/img",
-                "output": "/assets/"
-              }
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/portalpro-startapp/assets/global-css/style-central.scss",
-              "node_modules/portalpro-startapp/assets/global-css/nunito-font.css"              
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"            
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
