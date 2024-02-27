@@ -23,7 +23,7 @@
     "@faker-js/faker": "^8.1.0",
     "@ng-bootstrap/ng-bootstrap": "^14.0.1",
     "@popperjs/core": "^2.11.6",
-    "bootstrap": "^4.3.1",
+    "bootstrap": "^5.3.3",
     "chart.js": "^4.2.1",
     "chartjs-plugin-datalabels": "^2.2.0",
     "cronstrue": "^2.26.0",
