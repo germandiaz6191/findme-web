@@ -16,7 +16,7 @@ spec:
         "kubernetes.io/os": linux
       containers:
       - name: find-me-web
-        image: acrfindme.azurecr.io/germandiaz6191/findme-web:19
+        image: acrfindme.azurecr.io/germandiaz6191/findme-web:24
         resources:
           requests:
             cpu: 100m
