@@ -1,7 +1,11 @@
-#FROM nginx:1.19.6-alpine as RUN
-FROM node:alpine
-WORKDIR /usr/src/app
-copy package*.json ./
-RUN npm install -g npm@10.4.0
-copy . .
-CMD ["npm", "start"]
+FROM node:20-alpine as angular
+WORKDIR /ng-app
+COPY package*.json .
+RUN npm ci
+COPY . .
+RUN npm run build
+
+FROM nginx:alpine
+ARG name
+COPY --from=angular /ng-app/dist/$name/browser /usr/share/nginx/html
+EXPOSE 80
