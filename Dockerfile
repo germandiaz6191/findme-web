@@ -1,11 +1,4 @@
-FROM node:20-alpine as angular
-WORKDIR /ng-app
-COPY package*.json .
-RUN npm ci
-COPY . .
-RUN npm run build
-
-FROM nginx:alpine
-ARG name
-COPY --from=angular /ng-app/dist/$name/browser /usr/share/nginx/html
-EXPOSE 80
+FROM nginx:1.19.6-alpine as RUN
+COPY _#{Build.Repository.Name}#/Artifact-#{Build.Repository.Name}#  /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY security-headers.conf /etc/nginx/security-headers.conf\
