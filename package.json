@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --base-href=/apioweb/api/v1/IOYUTRTEERG/",
+    "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --watch=false",
     "start-local": "ng serve --proxy-config proxy.conf.json",
